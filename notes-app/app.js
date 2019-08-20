@@ -1,10 +1,7 @@
+const yargs = require('yargs')
+const getNotes = require('./notes.js')
 const log = console.log
 
-var command = process.argv[2]
-var parameter = process.argv[3]
+log(yargs.argv)
 
-if(command === 'add') {
-    log('Added user ' + parameter)
-} else if(command === 'remove') {
-    log('Removed user ' + parameter)
-}
+log('City: ' + yargs.argv.city)
