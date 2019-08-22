@@ -18,9 +18,9 @@ const addNote = function(title, body) {
         })
 
         saveNotes(notes)
-        console.log('New note added!')
+        console.log(chalk.green.inverse('New note added!'))
     } else {
-        console.log('Note title taken!')
+        console.log(chalk.red.inverse('Note title taken!'))
     }
 }
 
@@ -34,10 +34,10 @@ const removeNote = function(title) {
     })
 
     if(notes.length === newNotes.length) {
-        console.log(chalk.bgRed('No note found!'))
+        console.log(chalk.red.inverse('No note found!'))
     } else {
         saveNotes(newNotes)
-        console.log(chalk.bgGreen('Note removed!'))
+        console.log(chalk.green.inverse('Note removed!'))
     }
 }
 
