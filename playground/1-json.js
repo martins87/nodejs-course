@@ -2,29 +2,19 @@ const fs = require('fs')
 
 const log = console.log
 
-// const book = {
-//     title: 'The 4-Hour Work Week',
-//     author: 'Tim Ferris'
-// }
-
-// // converts object into string
-// const bookJSON = JSON.stringify(book)
-
-// // converts string into object
-// const bookObject = JSON.parse(bookJSON)
-
-// log(bookJSON)
-// log(bookObject.author)
-
-// fs.writeFileSync('1-json.json', bookJSON)
-
-// gets data buffer from file
 const dataBuffer = fs.readFileSync('1-json.json')
+const dataString = dataBuffer.toString()
+var book = JSON.parse(dataString)
 
-// converted back into string
-const dataJSON = dataBuffer.toString()
+// original data: {"title":"The 4-Hour Work Week","author":"Tim Ferris"}
+log('Before changes:\n', book)
 
-// string converted into object
-const data = JSON.parse(dataJSON)
+book.title = 'Sell Or Be Sold'
+book.author = 'Grant Cardone'
 
-log(data)
+log('After changes:\n', book)
+
+var dataToWrite = JSON.stringify(book)
+
+// fs.appendFileSync('1-json.json', dataToWrite)
+fs.writeFileSync('1-json.json', dataToWrite)

@@ -4,15 +4,15 @@ const log = console.log
 
 yargs.command({
     command: 'add',
-    describe: 'Adds a city',
+    describe: 'Adds a note',
     builder: {
         title: {
-            describe: 'City name',
+            describe: 'Note name',
             demandOption: true,
             type: 'string'
         },
         body: {
-            describe: 'City body',
+            describe: 'Note body',
             demandOption: true,
             type: 'string'
         }
@@ -24,7 +24,7 @@ yargs.command({
 
 yargs.command({
     command: 'remove',
-    describe: 'Removes a city',
+    describe: 'Removes a note',
     builder: {
         title: {
             describe: 'Note title',
@@ -40,17 +40,24 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'Lists a note',
-    handler: function(argv) {
+    handler: function() {
         notes.listNotes()
     }
 })
 
 yargs.command({
     command: 'read',
-    describe: 'Reads a city',
+    describe: 'Reads a note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
     handler: function(argv) {
-        log('Reading city: ' + argv.city)
+        notes.readNote(argv.title)
     }
 })
 
-log(yargs.argv)
+yargs.parse()
