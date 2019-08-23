@@ -7,7 +7,6 @@ request({url: darkskyUrl, json: true}, (err, res) => {
     var temperature = res.body.currently.temperature
     var precipProbability = res.body.currently.precipProbability
     console.log(res.body.daily.data[0].summary + ' Temperatura agora: ' + temperature + ' oC. Há uma chance de ' + precipProbability + '% de chover hoje.')
-
 })
 
 // Weather API 2: mapbox
