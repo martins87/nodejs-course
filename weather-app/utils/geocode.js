@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 const geocode = (address, callback) => {
     const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoibWFydGluczg3IiwiYSI6ImNqem85djl0dTA1ZXozcG5vd2RxZ3JvMmsifQ.gtFEy9QK1ra8h3adKe42HA&limit=1'
-    
+
     request({url: url, json: true}, (err, res) => {
         if(err) {
             callback('Unable to connect to mapbox weather service', undefined)
