@@ -1,15 +1,20 @@
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-geocode('Frankfurt Am Main', (err, data) => {
-    console.log('Error', err)
-    console.log('Data', data)
+// Belo Horizonte: -19.917299, -43.934559
+geocode('Berlin', (err, data) => {
+    if(err) {
+        return console.log(err)
+    }
 
     // callback chaining
-    forecast(data.latitude, data.longitude, (err, data) => {
-        console.log('Error', err)
-        console.log('Data', data)
+    forecast(data.latitude, data.longitude, (err, forecastData) => {
+        if(err) {
+            console.log(err)
+        }
+
+        console.log(data.location)
+        console.log(forecastData)
     })
 })
 
-// Belo Horizonte: -19.917299, -43.934559
