@@ -10,7 +10,11 @@
   "author": "Daniel Martins",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "request": "^2.88.0"
   }
 }
