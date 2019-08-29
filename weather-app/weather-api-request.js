@@ -1,7 +1,11 @@
 const request = require('request')
 const chalk = require('chalk')
 
+// https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/lecture/13728936#overview
+
 // Weather API 1: darksky
+// https://darksky.net/dev/docs
+// https://api.darksky.net/forecast/97e191801c1744f5fa5a8d4ae6270703/37.8267,-122.4233
 const darkskyUrl ='https://api.darksky.net/forecast/97e191801c1744f5fa5a8d4ae6270703/-19.917299,-43.934559?units=si&lang=pt'
 
 request({url: darkskyUrl, json: true}, (err, res) => {
@@ -18,6 +22,7 @@ request({url: darkskyUrl, json: true}, (err, res) => {
 })
 
 // Weather API 2: mapbox
+// https://docs.mapbox.com/
 // mapbox token = pk.eyJ1IjoibWFydGluczg3IiwiYSI6ImNqem85djl0dTA1ZXozcG5vd2RxZ3JvMmsifQ.gtFEy9QK1ra8h3adKe42HA
 const mapboxUrl = 'https://api.mapbox.com/geocoding/v5/mapbox.places/berlin.json?access_token=pk.eyJ1IjoibWFydGluczg3IiwiYSI6ImNqem85djl0dTA1ZXozcG5vd2RxZ3JvMmsifQ.gtFEy9QK1ra8h3adKe42HA&limit=1'
 
