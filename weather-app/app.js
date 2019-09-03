@@ -16,28 +16,29 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', (req, res) => {
     res.render('index', {
-        forecastData: '...'
+        forecastData: ''
     })
 })
 
+// Belo Horizonte: -19.917299, -43.934559
 app.post('/', (req, res) => {
     var location = req.body._location
 
-    geocode(location, (err, data) => {
+    geocode(location, (err, {latitude, longitude, location}) => {
         if(err) {
             return console.log(err)
         }
     
         // callback chaining
-        forecast(data.latitude, data.longitude, (err, forecastData) => {
+        forecast(latitude, longitude, (err, forecastData) => {
             if(err) {
                 console.log(err)
             }
 
-            console.log(data.location)
+            console.log(location)
             console.log(forecastData.summary)
 
-            var fullData = '' + data.location + ' [' + data.latitude + ', ' + data.longitude + '] : ' + forecastData.summary
+            var fullData = '' + location + ' [' + latitude + ', ' + longitude + '] : ' + forecastData.summary
 
             res.render('index', {
                 forecastData: fullData
@@ -48,25 +49,7 @@ app.post('/', (req, res) => {
     // res.render('index', {
     //     forecastData: forecastData
     // })
-
 })
-
-// Belo Horizonte: -19.917299, -43.934559
-// geocode('Berlin', (err, data) => {
-//     if(err) {
-//         return console.log(err)
-//     }
-
-//     // callback chaining
-//     forecast(data.latitude, data.longitude, (err, forecastData) => {
-//         if(err) {
-//             console.log(err)
-//         }
-
-//         console.log(data.location)
-//         console.log(forecastData)
-//     })
-// })
 
 const port = 3000
 app.listen(port, () => {
