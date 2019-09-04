@@ -30,15 +30,6 @@ app.get('/index', (req, res) => {
     res.sendFile('/home/martins/development/learning/node.js/nodejs-course/web-server/public/index.html')
 })
 
-app.get('/help', (req, res) => {
-    res.send('Do you need help?')
-})
-
-app.get('/about', (req, res) => {
-    // res.status(200).send({title: 'About page'})
-    res.send('<h1>This is the About Page</h1>')
-})
-
 app.get('/weather', (req, res) => {
     // here we are sending a JSON object
     res.send(cities)
