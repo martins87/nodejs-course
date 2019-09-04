@@ -1,5 +1,17 @@
+// path is a core module
+const path = require('path')
 const express = require('express')
 const app = express()
+
+console.log(path.join(__dirname))
+
+// app.use is a way to customize the server
+/**
+ * express.static() allows to serve static files
+ * we need to specify the folder that will contain all the static files
+ * in this case: /public
+*/
+app.use(express.static(path.join(__dirname, '../public')))
 
 var cities = [{
     city: 'Florianópolis',
