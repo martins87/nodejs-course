@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello, world!</h1>')
 })
 
+app.get('/index', (req, res) => {
+    // path here must be the absolute path
+    res.sendFile('/home/martins/development/learning/node.js/nodejs-course/web-server/public/index.html')
+})
+
 app.get('/help', (req, res) => {
     res.send('Do you need help?')
 })
