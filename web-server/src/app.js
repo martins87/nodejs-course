@@ -3,6 +3,10 @@ const path = require('path')
 const express = require('express')
 const app = express()
 
+const viewsPath = path.join(__dirname, '../pizza')
+
+app.set('views', viewsPath)
+
 // app.set allows to set a value for a given express setting
 // here we are setting the hbs (handlebars) dinamic templates
 app.set('view engine', 'hbs')
@@ -29,9 +33,21 @@ app.get('', (req, res) => {
     })
 })
 
+app.get('/about', (req, res) => {
+    res.render('about', {
+        content: 'The idiosyncrasy of this town is smoke. It rolls sullenly in slow folds from the great chimneys of the iron-foundries, and settles down in black, slimy pools on the muddy streets. Smoke on the wharves, smoke on the dingy boats, on the yellow river--clinging in a coating of greasy soot to the house-front, the two faded poplars, the faces of the passers-by.'
+    })
+})
+
 app.get('/index', (req, res) => {
     // path here must be the absolute path
     res.sendFile('/home/martins/development/learning/node.js/nodejs-course/web-server/public/index.html')
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: 'Help Page'
+    })
 })
 
 app.get('/weather', (req, res) => {
