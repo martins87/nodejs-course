@@ -3,7 +3,9 @@ const path = require('path')
 const express = require('express')
 const app = express()
 
-console.log(path.join(__dirname))
+// app.set allows to set a value for a given express setting
+// here we are setting the hbs (handlebars) dinamic templates
+app.set('view engine', 'hbs')
 
 // app.use is a way to customize the server
 /**
@@ -11,7 +13,7 @@ console.log(path.join(__dirname))
  * we need to specify the folder that will contain all the static files
  * in this case: /public
 */
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../public')))  
 
 var cities = [{
     city: 'Florianópolis',
@@ -21,8 +23,10 @@ var cities = [{
     weather: 'Nice',
 }]
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello, world!</h1>')
+app.get('', (req, res) => {
+    res.render('index', {
+        name: 'Daniel Martins'
+    })
 })
 
 app.get('/index', (req, res) => {
