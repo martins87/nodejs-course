@@ -3,10 +3,6 @@ const path = require('path')
 const express = require('express')
 const app = express()
 
-const viewsPath = path.join(__dirname, '../pizza')
-
-app.set('views', viewsPath)
-
 // app.set allows to set a value for a given express setting
 // here we are setting the hbs (handlebars) dinamic templates
 app.set('view engine', 'hbs')
