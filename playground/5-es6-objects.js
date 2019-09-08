@@ -19,8 +19,13 @@ const product = {
     rating: 4.2
 }
 
-const transaction = (type, {label, stock}) => {
+// here we set a default value for the parameter
+const transaction = (type, {label, stock} = {}) => {
     console.log(type, label, stock)
 }
 
+// output: order Red Notebook 201
 transaction('order', product)
+
+// output: order undefined undefined
+transaction('order')
