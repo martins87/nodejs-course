@@ -20,3 +20,26 @@ fetch(url).then((res) => {
         }
     })
 })
+
+// document.querySelector() returns the whole form
+const weatherForm = document.querySelector('form')
+
+/** event listeners:
+ *  - there are many:
+ *      for hovering something (e.g. the header)
+ *      for scrolling on a page
+ *      for clicking a button
+ *      for submitting a form
+ *      ...
+*/
+// here 'submit' is the event we are listening
+// e is the result event
+weatherForm.addEventListener('submit', (e) => {
+    // preventDefaut() prevents the default behaviour,
+    // which is reload the page every time the form is submitted
+    e.preventDefault()
+
+    alert('Just alerted without reloading the page :D')
+
+})
+
