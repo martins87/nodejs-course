@@ -1,11 +1,5 @@
 console.log('Loaded here')
 
-// fetch('https://puzzle.mead.io/puzzle').then((res) => {
-//     res.json().then((data) => {
-//         console.log(data)
-//     })
-// })
-
 const city = 'Berlin'
 const url = 'http://localhost:3030/weather?address=' + city
 
@@ -23,6 +17,7 @@ fetch(url).then((res) => {
 
 // document.querySelector() returns the whole form
 const weatherForm = document.querySelector('form')
+const searchData = document.querySelector('input')
 
 /** event listeners:
  *  - there are many:
@@ -39,7 +34,9 @@ weatherForm.addEventListener('submit', (e) => {
     // which is reload the page every time the form is submitted
     e.preventDefault()
 
-    alert('Just alerted without reloading the page :D')
+    const location = searchData.value
+
+    console.log('inputData: ', location)
 
 })
 
