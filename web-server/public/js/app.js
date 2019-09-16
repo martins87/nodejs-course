@@ -25,7 +25,8 @@ weatherForm.addEventListener('submit', (e) => {
     messageTwo.textContent = 'Loading...'
 
     const location = searchData.value
-    const url = 'http://localhost:3030/weather?address=' + location
+    // the url is just /weather cause the server will know where to look up
+    const url = '/weather?address=' + location
 
     fetch(url).then((res) => {
         res.json().then((data) => {
