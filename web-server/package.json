@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,hbs"
   },
   "keywords": [],
   "author": "Daniel Martins",
@@ -14,5 +15,9 @@
     "express": "^4.17.1",
     "hbs": "^4.0.4",
     "request": "^2.88.0"
+  },
+  "_comment": "devDependencies are not installed on the production environment, only locally",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
   }
 }
