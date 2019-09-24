@@ -18,15 +18,29 @@ MongoClient.connect(connectionUrl, {
     // reference to the database
     const db = client.db(databaseName)
 
-    // reference to a collection
-    // db.collection(<collection-name>)
+    // db.collection('users').insertOne({
+    //     name: 'Léa',
+    //     age: 24 
+    // }, (err, result) => {
+    //     if(err) {
+    //         console.log('Unable to insert user')
+    //     }
 
-    db.collection('users').insertOne({
-        name: 'Léa',
-        age: 24 
-    }, (err, result) => {
+    //     console.log(result.ops)
+    // })
+
+    db.collection('users').insertMany([
+        {
+            name: 'Edmundo',
+            age: 66
+        },
+        {
+            name: 'Rosalicy',
+            age: 53
+        }
+    ], (err, result) => {
         if(err) {
-            console.log('Unable to insert user')
+            return console.log('Unable to insert documents')
         }
 
         console.log(result.ops)
