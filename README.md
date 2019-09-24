@@ -1,1 +1,1 @@
-# nodejs-course
+# Node.js course repository
